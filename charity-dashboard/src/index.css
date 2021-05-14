@@ -1,88 +1,121 @@
 body{
-  background-color: #F8F1E4;
+  background-color: #363e61;;
 }
 
 .html, div, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, .row, .col, div, a, .container-fluid{
   padding: 0;
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: futura-pt, sans-serif;
   text-decoration: none;
   
 }
 
-.title{
+.App{
+  height: 100vh;
   width: 100%;
-  color: #231e32;
-  font-size: 50px;
-  font-weight: 900;
-  text-align: center;
-  margin-top: 40px;
 }
 
-.about{
-  width: 100%;  
-  color: #fd5459;
-  font-size: 15px;
-  font-weight: 600;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.cards{
+.container-fluid{
+  width: 100%;
   height: auto;
-  padding-left:90px;
-  padding-right:90px;
-  padding-top:40px;
 }
 
-.card{
-  height: auto;
-  padding: 30px;
-  float:left;
-  background-color: transparent;
-  border:none;
+.nav{
+height: 100vh;
+width: 7%;
+float: left;
+
 }
 
-.contentContainer{
- height: 550px;
-  background-color: #231e32;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow:
-  0 1.3px 1.9px -10px rgba(0, 0, 0, 0.027),
-  0 3.1px 4.3px -10px rgba(0, 0, 0, 0.031),
-  0 5.5px 7.7px -10px rgba(0, 0, 0, 0.031),
-  0 9.2px 12.8px -10px rgba(0, 0, 0, 0.033),
-  0 15.1px 21.2px -10px rgba(0, 0, 0, 0.039),
-  0 26.4px 37px -10px rgba(0, 0, 0, 0.058),
-  0 57px 80px -10px rgba(0, 0, 0, 0.16)
-;
+.SMlogo{
+  width: 90px;
+  height: 70px;
+  margin-top: 50px;
+  margin-left:20px;
+
+  background-image: url(./assets/chartiAbleSmall-03.png);
+  background-position: center;
+  background-size: cover ;
 }
 
-.activeValue{
-  color: #6dccb0;
+.mainSection{
+  background-color: #f2f2f2;
+  width: 93%;
+  height: 100vh;
+  float: right;
+  border-radius: 40px 0px 0px 40px ;
+  float: left;
+  -webkit-box-shadow: -2px 0px 41px -10px rgba(0,0,0,0.92);
+  -moz-box-shadow: -2px 0px 41px -10px rgba(0,0,0,0.92);
+  box-shadow: -2px 0px 41px -10px rgba(0,0,0,0.92);
 }
 
-.card h1{
+.half1{
+  height: 50%;
+  width: 100%;
+  padding: 3%;
+}
+
+.half2{
+  height: 50%;
+  width: 100%;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 3%;
+
+}
+
+.card1{
+  background-color: white;
+  width: 31.2%;
+  height: 100%;
+  border-radius: 30px;
+  float: left;
+
+  -webkit-box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+-moz-box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+
+padding: 30px;
+}
+
+.card2{
+  background-color: white;
+  width: 50%;
+  height:100%;
+  border-radius: 30px;
+  float: left;
+
+  -webkit-box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+-moz-box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+}
+
+.card3{
+  background-color: white;
+  width: 22%;
+  height:100%;
+  border-radius: 30px;
+  float: left;
+
+  -webkit-box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+-moz-box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+}
+
+.header{
+  color: #363e61;
   font-size: 30px;
   width: 100%;
-  color: #F8F1E4;
   text-align: center;
-  font-weight: bold;
+  font-weight: 700;
 }
 
-.card h2{
-  font-size: 15px;
+.subheading{
+  color: #363e61;
+  font-size: 18px;
   width: 100%;
-  color: #F8F1E4;
   text-align: center;
-  margin-top: 15px;
-}
-
-.card h3{
-  font-size: 12px;
-  width: 100%;
-  color: #fd5459;
-  text-align: center;
-  margin-top: 15px;
+  font-weight: 500;
+  margin-bottom: 30px;
 }
