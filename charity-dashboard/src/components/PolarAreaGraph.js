@@ -30,7 +30,7 @@ const PolarAreaGraph=()=>{
 
     return(
         
-        <div style={{width:'240px', float:'left', marginLeft:'100px', marginTop:'-10px'}}>
+        <div style={{width:'290px', float:'left', marginLeft:'8px', marginTop:'-10px'}}>
             <PolarArea data={chartData} options={{plugins:{legend:{display:false}}}}  />
         </div>
     );

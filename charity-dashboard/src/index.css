@@ -101,6 +101,8 @@ box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
   -webkit-box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
 -moz-box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
 box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+
+padding: 30px;
 }
 
 .header{
@@ -119,3 +121,57 @@ box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
   font-weight: 500;
   margin-bottom: 30px;
 }
+
+.imgContainer{
+  width: 90%;
+  height:250px;
+
+  background-image: url(./assets/illustration-01.png);
+  background-position: center;
+  background-size: cover;
+
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
+.involved{
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 10px;
+  width:100%;
+  text-align: center;
+}
+
+.involved-subheading{
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 5px;
+  width:100%;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.button{
+  background-color: #363e61;
+  width: 50%;
+  height: auto;
+  padding:7px;
+  border-radius: 50px;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+  margin:auto;
+  -webkit-box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+  -moz-box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+  box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+}
+
+.map-container{
+  width: 100%;
+  height:430px;
+  border-radius: 30px;
+  float: left;
+}
+
