@@ -3,14 +3,64 @@ import {PolarArea} from 'react-chartjs-2'
 
 const PolarAreaGraph=()=>{
 
-    const[chartData, setChartData]=useState();
+    const[apiValue, setAPIvalue]=useState([]);
 
-    const chart =()=>{
-        setChartData({
-            labels:['A town of 100,000 people reads for a year.','100 villages of 2,000 people each read for a year','200 villages of 2,000 people each read for a year.','Reading for half-a-million people!','Reading for a million people!'],
+
+    var myHeaders = new Headers();
+    myHeaders.append("Accept", "application/json");
+    myHeaders.append("Authorization", "Basic MjAwMDgwQHZpcnR1YWx3aW5kb3cuY28uemE6SUoxNTk5YmluZ2luaQ==");
+    
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+
+    useEffect(()=>{
+    
+        async function loadData(){
+            const response= await fetch('https://api.globalgiving.org/api/public/projectservice/all/projects/active?api_key=f2121684-e111-4cf0-ae00-bd0424a1a75e',requestOptions);
+            const data = await response.json();
+            const item=data.projects.project[8].donationOptions.donationOption;
+            //nb line above - if the content is a sub array 
+            setAPIvalue(item);
+            console.log(item);
+
+        }
+        loadData();
+        
+        },[]); //use effect
+
+        var amountNeeded=[];
+        var amountLabel=[];
+        var undefinedData=[];
+
+        for(var j=0; j<apiValue.length; j++){
+
+            while(apiValue[j]===undefined){
+                undefinedData.push(apiValue[j]);
+                console.log("api not yet loaded")
+            }
+    
+                if(apiValue!==undefined && apiValue!== null){
+    
+                    for(var i=0;i<8;i++){
+    
+                        amountNeeded.push(apiValue[i].amount);
+                        amountLabel.push(apiValue[i].description);
+    
+                    }
+            
+                }else{
+                    console.log("api not loaded");
+                }
+            }//j
+
+        const chartData={
+            labels:[amountLabel[0],amountLabel[1],amountLabel[2],amountLabel[3],amountLabel[4],amountLabel[5],amountLabel[6],amountLabel[7]],
             datasets:[{
                 label:'Literacy for a Billion in India!',
-                data:[10,20,40,50,100],
+                data:[amountNeeded[0],amountNeeded[1],amountNeeded[2],amountNeeded[3],amountNeeded[4],amountNeeded[5],amountNeeded[6],amountNeeded[7]],
                 backgroundColor:['#ff9088', 
                 '#39c4e5',
                 '#b0e7f5',
@@ -21,12 +71,7 @@ const PolarAreaGraph=()=>{
                 borderWidth:2,
                 hoverBackgroundColor:'#6ee2f5'
             }]
-        });
     }
-
-    useEffect(()=>{
-        chart();
-    },[]);
 
     return(
         

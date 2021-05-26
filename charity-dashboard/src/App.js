@@ -21,7 +21,8 @@ function App() {
                <div className="card1">
                <h2 className="header">Current funding vs target</h2>
                  <h3 className="subheading">- Which charities need funding -</h3>
-                 <BarGraph/></div>
+                  <BarGraph/>
+                 </div>
 
                <div className="card1" style={{marginLeft: "3%"}}>
                <h2 className="header">Charity category count</h2>
