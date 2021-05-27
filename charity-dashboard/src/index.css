@@ -175,3 +175,33 @@ padding: 30px;
   float: left;
 }
 
+.bodyContainer{
+  width: 60%;
+  height: 100vh;
+  margin:auto;
+  padding-top: 20vh;
+}
+
+.largeLogo{
+  width:45%;
+  height: 200px;
+  margin:auto;
+
+  background-image: url(./assets/chartiAble-04.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.aboutP{
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.powered{
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 380px;
+}

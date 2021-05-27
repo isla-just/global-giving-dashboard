@@ -3,92 +3,135 @@ import {Bubble} from 'react-chartjs-2'
 
 const BubbleGraph=()=>{
 
-    const[chartData, setChartData]=useState();
+     // const chartData set chart function set to use stte const[chartData, setChartData] = useState([])
+     const[apiValue, setAPIvalue]=useState([]);
 
-    const chart =()=>{
-        setChartData({
+     var myHeaders = new Headers();
+     myHeaders.append("Accept", "application/json");
+     myHeaders.append("Authorization", "Basic MjAwMDgwQHZpcnR1YWx3aW5kb3cuY28uemE6SUoxNTk5YmluZ2luaQ==");
+     
+     var requestOptions = {
+       method: 'GET',
+       headers: myHeaders,
+       redirect: 'follow'
+     };
+ 
+     useEffect(()=>{
+     
+         async function loadData(){
+             //fetches tghemes
+             const response= await fetch('https://api.globalgiving.org/api/public/projectservice/featured/projects?api_key=f2121684-e111-4cf0-ae00-bd0424a1a75e',requestOptions);
+             const data = await response.json();
+             const item=data.projects.project;
+
+             //nb line above - if the content is a sub array 
+             setAPIvalue(item);
+             console.log(item);
+         }
+         loadData();
+
+         
+         },[]); //use effect
+
+         var charityName=[];
+         var donations=[];
+         var outstanding=[];
+
+         var current=[];
+         var need=[];
+         var undefinedData=[];
+
+         for(var j=0; j<apiValue.length; j++){
+
+          while(apiValue[j]===undefined){
+              undefinedData.push(apiValue[j]);
+              console.log("api not yet loaded")
+          }
+  
+              if(apiValue!==undefined && apiValue!== null){
+
+                  charityName.push(apiValue[j].title);
+                  donations.push(apiValue[j].numberOfDonations);
+                  need.push(apiValue[j].goal);
+                  current.push(apiValue[j].funding);
+          
+              }else{
+                  console.log("api not loaded");
+
+              }
+          }//j
+
+          for(var i=0; i<need.length;i++){
+            outstanding.push(Math.round((current[i]/need[i]) *50));
+          }
+       
+          console.log(outstanding);
+
+    const chartData ={
+
+      type: 'bubble',
+      // data: data,
+      // options: {}
+
             datasets:[{
-                labels:'Animals and wellfare, Child protection',
+
                 data: [{
-                    x: 1,
-                    y: 183,
-                    r: 4
+                    x: charityName[1],
+                    y: donations[1],
+                    r: outstanding[1]
                   }, {
-                    x: 3,
-                    y: 423,
-                    r: 7
-                  },{
-                    x: 5,
-                    y: 9,
-                    r: 11
-                  },{
-                    x: 5,
-                    y: 1,
-                    r: 5
-                  },{
-                    x: 10,
-                    y: 8,
-                    r: 12
-                  },{
-                    x: 5,
-                    y: 7,
-                    r: 15
-                  },{
-                    x: 12,
-                    y: 6,
-                    r: 5
-                  },{
-                    x: 5,
-                    y: 6,
-                    r: 8
-                  },{
-                    x: 6,
-                    y: 8,
-                    r: 10
-                  },{
-                    x: 13,
-                    y: 9,
-                    r: 2
-                  },{
-                    x: 15,
-                    y: 6,
-                    r: 10
-                  },{
-                    x: 16,
-                    y: 4,
-                    r: 2
-                  },{
-                    x: 19,
-                    y: 8,
-                    r: 3
-                  },{
-                    x: 18,
-                    y: 3,
-                    r: 5
+                    x: charityName[2],
+                    y: donations[2],
+                    r: outstanding[2]
+                  }, {
+                    x: charityName[3],
+                    y: donations[3],
+                    r: outstanding[3]
+                  }, {
+                    x: charityName[4],
+                    y: donations[4],
+                    r: outstanding[4]
+                  }, {
+                    x: charityName[5],
+                    y: donations[5],
+                    r: outstanding[5]
+                  }, {
+                    x: charityName[6],
+                    y: donations[6],
+                    r: outstanding[6]
+                  }, {
+                    x: charityName[7],
+                    y: donations[7],
+                    r: outstanding[7]
+                  }, {
+                    x: charityName[8],
+                    y: donations[8],
+                    r: outstanding[8]
+                  }, {
+                    x: charityName[9],
+                    y: donations[9],
+                    r: outstanding[9]
                   }
-                ],
-                backgroundColor:['#FF6CAB', 
-                '#FFCF1B',
-                '#F00B51',
-                '#ffcda5',
-                '#ff9482',
-                '#ff5b94',
-                '#ffa62e',
+                ],//data
+                backgroundColor:[
+                  '#ff6855', 
+                '#39c4e5',
+                '#363e61',
+                '#ff928a',
+                '#b0e7f5',
+                '#ff6855',
+                '#39c4e5',
             ],
-                
-                borderWidth:4,
+
                 hoverRadius:+6
-            }]
-        });
+            }]//datasets
+
     }
 
-    useEffect(()=>{
-        chart();
-    },[]);
 
     return(
-        <div style={{width:'500px', height:'500px', float:'left', marginTop:'80px',marginLeft:'150px'}}>
-            <Bubble data={chartData} options={{responsive:true}}  />
+        <div style={{width:'470px', height:'2000px', float:'left'}}>
+            <Bubble data={chartData} options={{ legend:{display:false}, scales: { x: {type: 'category',labels: ['']}}}}  />
         </div>
     );
 }

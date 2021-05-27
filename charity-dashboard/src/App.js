@@ -7,6 +7,8 @@ import PolarAreaGraph from "./components/PolarAreaGraph";
 import RadarGraph from "./components/RadarChart";
 import LineGraph from "./components/LineGraph";
 import MapComponent from "./components/Map";
+import Preloader from "./components/Preloader";
+import BubbleGraph from "./components/BubbleGraph";
 
 
 function App() {
@@ -25,9 +27,10 @@ function App() {
                  </div>
 
                <div className="card1" style={{marginLeft: "3%"}}>
-               <h2 className="header">Charity category count</h2>
-                 <h3 className="subheading">- Active and inactive projects -</h3>
-                 <RadarGraph/>
+               <h2 className="header">Featured project funding</h2>
+                 <h3 className="subheading">- How are the featured charities doing? -</h3>
+                 {/* <RadarGraph/> */}
+                 <BubbleGraph/>
                </div>
 
                <div className="card1" style={{marginLeft: "3%"}}>
@@ -56,7 +59,7 @@ function App() {
 
       </div>
    
-  
+    {/* <Preloader/> */}
     </div>
   );
 }

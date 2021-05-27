@@ -18,17 +18,18 @@ const RadarGraph=()=>{
     useEffect(()=>{
     
         async function loadData(){
+            //fetches tghemes
             const response= await fetch('https://api.globalgiving.org/api/public/projectservice/themes?api_key=f2121684-e111-4cf0-ae00-bd0424a1a75e',requestOptions);
             const data = await response.json();
-            const item=data.themes;
+            const item=data.themes.theme.id;
             //nb line above - if the content is a sub array 
             setAPIvalue(item);
-            //console.log(item);
+            console.log(item);
         }
         loadData();
 
         async function loadData2(){
-            const response= await fetch('https://api.globalgiving.org/api/public/projectservice/themes?api_key=f2121684-e111-4cf0-ae00-bd0424a1a75e',requestOptions);
+            const response= await fetch(`https://api.globalgiving.org/api/public/projectservice/themes/`+apiValue+`/projects?api_key=f2121684-e111-4cf0-ae00-bd0424a1a75e`,requestOptions);
             const data = await response.json();
             const item=data.themes;
             //nb line above - if the content is a sub array 
