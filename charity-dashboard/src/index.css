@@ -205,3 +205,116 @@ padding: 30px;
   text-align: center;
   margin-top: 380px;
 }
+
+.mapContainer{
+  width: 100%;
+  height:430px;
+  border-radius: 30px;
+  float: left;
+}
+
+.compare{
+  width: 100%;
+  height: 95vh;
+}
+
+.smLogo{
+  width:200px;
+  height: 80px;
+  margin:auto;
+
+  background-image: url(./assets/chartiAble-05.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.cardrow{
+  width: 30%;
+  height: 100vh;
+  float: left;
+}
+
+.block{
+  height: 27vh;
+  width: 80%;
+  background-color: white;
+  margin-top: 5vh;
+  margin-left: 70px;
+
+  border-radius: 30px;
+
+  -webkit-box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+-moz-box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+
+padding: 30px;
+display: block;
+}
+
+.row2{
+  width: 100%;
+  height: 100vh;
+}
+
+.chartContainer{
+  width: 66%;
+  height: 91vh;
+  margin-top: 5vh;
+  background-color: #f2f2f2;
+  float: right;
+  margin-right: 70px;
+
+  border-radius: 30px;
+
+  -webkit-box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+-moz-box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+
+padding: 30px;
+}
+
+.cardrow p{
+  width: 100%;
+  text-align: center;
+}
+
+.block select{
+  width: 40%;
+  height: 30px;
+  padding: 5px;
+  color: white;
+  background-color: #363e61;
+  border-radius: 30px;
+  border: none;
+  font-size: 14px;
+
+  -webkit-box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+  -moz-box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+  box-shadow: -2px 15px 40px -17px rgba(0,0,0,0.1);
+
+  margin-top: 20px;
+  float: left;
+}
+
+.comparebtn{
+  width: 50%;
+  height: 30px;
+  padding: 3px;
+  text-align: center;
+  color: white;
+  border-radius: 30px;
+  background-color:#FF6855 ;
+  display: block;
+  margin-top: 70px;
+  margin-left: 100px;
+}
+
+.next{
+  width:40px;
+  height: 40px;
+  background-color: #FF6855;
+  border-radius: 50%;
+  float: right;
+  margin-top: 30px;
+  margin-right: -10px;
+}

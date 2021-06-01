@@ -130,8 +130,26 @@ const BubbleGraph=()=>{
 
 
     return(
-        <div style={{width:'470px', height:'2000px', float:'left'}}>
-            <Bubble data={chartData} options={{ legend:{display:false}, scales: { x: {type: 'category',labels: ['']}}}}  />
+        <div style={{width:'470px', height:'400px', float:'left'}}>
+            <Bubble data={chartData} options={{ 
+                          plugins:{ 
+                            legend:{display:false, labels:{color:'#ffffff00', boxWidth:0}}
+                        },scales:{
+                            // yAxis:[{
+                            //     //   categoryPercentage: 1.0,
+                            //     // barPercentage: 1.0,
+                            // }],
+                          
+                            x:{
+                               ticks:{
+                                    color:'rgba(0,0,0,0)'
+                                },
+                                type: 'category',labels: ['']
+                            }
+                        }, maintainAspectRatio: false,
+                
+              
+              }}  />
         </div>
     );
 }

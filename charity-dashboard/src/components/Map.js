@@ -1,5 +1,9 @@
 
 import React, { useRef, useEffect, useState } from 'react';
+import ReactGeoJSON from 'react-geojson';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import $ from 'jquery';
+
 var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
 mapboxgl.accessToken = 'pk.eyJ1IjoiaXNsYS1qdXN0IiwiYSI6ImNrbWtqOWw3MjExaDcyd2s1aWZvcm03Nm4ifQ.PSbadTmiR284FgPUCfnB0w';
 
@@ -19,9 +23,10 @@ const MapComponent=()=>{
 
     const mapContainer = useRef(null);
 const map = useRef(null);
-const [lng, setLng] = useState(-70.9);
-const [lat, setLat] = useState(42.35);
-const [zoom, setZoom] = useState(9);
+
+var dataList=[];
+
+var undefinedData=[];
 
 useEffect(() => {
     if (map.current) return; // initialize map only once
@@ -29,7 +34,7 @@ useEffect(() => {
     map.current = new mapboxgl.Map({
     container: mapContainer.current,
     style: 'mapbox://styles/isla-just/ckoo9alww0pm817qkgs2kgz71',
-    center: [lng, lat],
+    center: [16, 27],
     zoom: 0
     });//new map
 
@@ -42,10 +47,40 @@ useEffect(() => {
         console.log(item);
     }
     loadData();
-    
+
+    // $(()=>{});
+
     },[]);
 
+    for(var j=0; j<apiValue.length; j++){
+
+    while(apiValue[j]===undefined){
+        undefinedData.push(apiValue[j]);
+        console.log("api not yet loaded")
+    }
+
+        if(apiValue!==undefined && apiValue!== null){
+
+                   if(apiValue[j].longitude!==undefined && apiValue[j].latitude!==undefined){
+                    
+                    dataList.push({
+                        type: 'Feature',
+                        geometry: {
+                          type: 'Point',
+                          coordinates: [apiValue[j].longitude, apiValue[j].latitude],
+                        },
+
+                        properties: {
+                          name: apiValue[j].title,
+                        }
+                    });
+
+                   }//if
     
+        }else{
+            console.log("api not loaded");
+        }
+    }//j
 
     return (
         <div>

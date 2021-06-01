@@ -1,7 +1,9 @@
+//do simple routing and display this loader for a few seconds while the api data loads
 import React, {useState, useEffect} from 'react'
 import {Line} from 'react-chartjs-2'
 
-const LineGraph=()=>{
+const Comparison=()=>{
+
 
     // const chartData set chart function set to use stte const[chartData, setChartData] = useState([])
     const[apiValue, setAPIvalue]=useState([]);
@@ -114,14 +116,65 @@ const LineGraph=()=>{
 
     }
 
+
     return(
-        <div style={{height:'260px', width:'470px', marginTop:'-30px'}}>
+        <div className="compare">
+
+        <div className='cardrow'>
+            <div className="block">
+          <div className="smLogo"></div>
+          <p>- Compare one organisation to another -</p>
+
+          <form>
+              <select id='option1' name='organisation1'>
+
+                  {/* //insery title array */}
+              <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="fiat">Fiat</option>
+                <option value="audi">Audi</option>
+              </select>
+
+              <select id='option1' name='organisation1' style={{marginLeft:'73px'}}>
+
+            {/* //insery title array */}
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+            </select>
+        
+          </form>
+
+          <div className="comparebtn">Compare</div>
+        </div>
+        <div className="block">
+            <h1 style={{textAlign:'center'}}>Project Name</h1>
+            <h4 style={{textAlign:'center'}}>Organisation</h4>
+            <p style={{marginTop:'20px'}}>long term impact</p>
+            <p style={{textDecoration:'underline'}}>project link</p>
+
+            <div className="next"></div>
+        </div>
+        <div className="block">
+        <h1 style={{textAlign:'center'}}>Project Name</h1>
+            <h4 style={{textAlign:'center'}}>Organisation</h4>
+            <p style={{marginTop:'20px'}}>long term impact</p>
+            <p style={{textDecoration:'underline'}}>project link</p>
+
+            <div className="next"></div>
+        </div>
+        </div>
+      
+      <div className="row2">
+         <div className="chartContainer">
+
+             <h1 style={{fontWeight:'bold', textAlign:'center', marginTop:'10px'}}>COMPARISON</h1>
+
+         <div style={{height:'700px', width:'1200px', marginTop:'20px'}}>
             <Line data={chartData}  
             options={{            
-                
-                plugins:{ 
-                legend:{display:false, labels:{color:'#ffffff00', boxWidth:0}}
-            },scales:{
+            scales:{
                 // yAxis:[{
                 //     //   categoryPercentage: 1.0,
                 //     // barPercentage: 1.0,
@@ -135,7 +188,11 @@ const LineGraph=()=>{
             }, maintainAspectRatio: false,
             }}/>
         </div>
+
+         </div>
+      </div>
+       
+      </div>
     );
 }
-
-export default LineGraph
+export default Comparison

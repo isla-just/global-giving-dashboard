@@ -74,29 +74,44 @@ const BarGraph=()=>{
                     label: "Current",
                     backgroundColor: "#39c4e5",
                     data: [currentFunding[0],currentFunding[1],currentFunding[2],currentFunding[3],currentFunding[4],currentFunding[5]],
-                    barThickness:14,
+                    barThickness:10,
                     borderRadius:10,
                     borderColor:'white',
-                    borderWidth:3
+                    borderWidth:1,
                 },
                 {
                     label: "Target",
                     backgroundColor: "#ff6855",
                     data: [targetFunding[0],targetFunding[1],targetFunding[2],targetFunding[3],targetFunding[4],targetFunding[5]],
-                    barThickness:14,
+                    barThickness:10,
                     borderRadius:10,
                     borderColor:'white',
-                    borderWidth:3
-
+                    borderWidth:1,
+                
                 }
             ]
     }//chart
 
     return(
-        <div style={{width:'450px', margin:'auto'}}>
-        <Bar data={chartData} options={{indexAxis: 'y', 
-        plugins:{ legend:{display:false, labels:{color:'#ffffff00', boxWidth:0}}}}
-        }  />
+        <div style={{width:'780px',height:'270px', marginLeft:'-300px', marginTop:'-30px'}}>
+        <Bar data={chartData} options={{
+            indexAxis: 'y', 
+            plugins:{ 
+                legend:{display:false, labels:{color:'#ffffff00', boxWidth:0}}
+            },scales:{
+                // yAxis:[{
+                //     //   categoryPercentage: 1.0,
+                //     // barPercentage: 1.0,
+                // }],
+              
+                y:{
+                   ticks:{
+                        color:'rgba(0,0,0,0)'
+                    },
+                }
+            }, maintainAspectRatio: false,
+        }}//options
+       />
     </div>
     );
 }

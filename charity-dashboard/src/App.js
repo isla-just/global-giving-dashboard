@@ -9,6 +9,7 @@ import LineGraph from "./components/LineGraph";
 import MapComponent from "./components/Map";
 import Preloader from "./components/Preloader";
 import BubbleGraph from "./components/BubbleGraph";
+import Comparison from "./components/Comparison";
 
 
 function App() {
@@ -37,12 +38,14 @@ function App() {
                <h2 className="header">Organisation comparison</h2>
                  <h3 className="subheading">- Donations per project -</h3>
                  <LineGraph/>
+                 <p style={{textAlign:"center", marginTop:'-15px', textDecoration:'underline', cursor:'pointer'}}>Compare 2 other organisations</p>
                  </div>
              </div>
 
              <div className="half2">
                <div className="card2">
                 <MapComponent/>
+                {/* <FetchMapData/> */}
                </div>
 
                <div className="card3" style={{marginLeft: "3%"}}>
@@ -60,6 +63,8 @@ function App() {
       </div>
    
     {/* <Preloader/> */}
+
+    <Comparison/>
     </div>
   );
 }
